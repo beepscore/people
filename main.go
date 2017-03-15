@@ -39,6 +39,13 @@ func GetPeopleEndpoint(w http.ResponseWriter, req *http.Request) {
 }
 
 func CreatePersonEndpoint(w http.ResponseWriter, req *http.Request) {
+	params := mux.Vars(req)
+	var person Person
+	_ = json.NewDecoder(req.Body).Decode(&person)
+	person.ID = params["id"]
+	people = append(people, person)
+	// returns all the people
+	json.NewEncoder(w).Encode(people)
 }
 
 func DeletePersonEndpoint(w http.ResponseWriter, req *http.Request) {
