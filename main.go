@@ -38,6 +38,12 @@ func GetPeopleEndpoint(w http.ResponseWriter, req *http.Request) {
 	json.NewEncoder(w).Encode(people)
 }
 
+/**
+Example usage:
+client POSTs to url http://localhost:12345/people/3
+Header Content-Type application/json
+POST body {"id":"3","firstname":"Moe","lastname":"Stooge","address":{"city":"Brooklyn","state":"NY"}}
+*/
 func CreatePersonEndpoint(w http.ResponseWriter, req *http.Request) {
 	params := mux.Vars(req)
 	var person Person
