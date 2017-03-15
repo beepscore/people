@@ -66,8 +66,8 @@ func DeletePersonEndpoint(w http.ResponseWriter, req *http.Request) {
 			people = append(people[:index], people[index+1:]...)
 			break
 		}
-		json.NewEncoder(w).Encode(people)
 	}
+	json.NewEncoder(w).Encode(people)
 }
 
 func main() {
