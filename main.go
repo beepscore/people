@@ -49,7 +49,7 @@ func main() {
 
 	// create sample data
 	people = append(people, Person{ID: "1", Firstname: "Nic", Lastname: "Raboy", Address: &Address{City: "Dublin", State: "CA"}})
-	people = append(people, Person{ID: "1", Firstname: "Maria", Lastname: "Raboy"})
+	people = append(people, Person{ID: "2", Firstname: "Maria", Lastname: "Raboy"})
 
 	router.HandleFunc("/people", GetPeopleEndpoint).Methods("GET")
 	router.HandleFunc("/people/{id}", GetPersonEndpoint).Methods("GET")
