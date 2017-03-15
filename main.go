@@ -54,7 +54,20 @@ func CreatePersonEndpoint(w http.ResponseWriter, req *http.Request) {
 	json.NewEncoder(w).Encode(people)
 }
 
+/**
+Example usage:
+client makes DELETE request to url http://localhost:12345/people/2
+*/
 func DeletePersonEndpoint(w http.ResponseWriter, req *http.Request) {
+	params := mux.Vars(req)
+	for index, item := range people {
+		if item.ID == params["id"] {
+			// join slice head before person to tail after person
+			people = append(people[:index], people[index+1:]...)
+			break
+		}
+		json.NewEncoder(w).Encode(people)
+	}
 }
 
 func main() {
