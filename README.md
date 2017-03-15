@@ -1,5 +1,5 @@
 # Purpose
-Learn some go language.
+Do golang tutorial.
 
 # References
 
